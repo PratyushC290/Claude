@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pratyush Chandra — AI & Full-Stack Engineer</title>
+  <meta name="description" content="Portfolio of Pratyush Chandra, CSE undergraduate at IIT Patna building LLM agents, evaluation harnesses and full-stack systems.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">PC<span>.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme" aria-label="Toggle theme">◐</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Pratyush Chandra</h1>
+      <p class="tagline">B.Tech CSE @ IIT Patna · building LLM agents, rigorous evaluations and full-stack systems.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="mailto:pratyushchandra2904@gmail.com">Email me</a>
+        <a class="btn" href="https://github.com/PratyushC290" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <ul class="stats">
+        <li><b>8.96</b><span>CGPA, IIT Patna</span></li>
+        <li><b>AIR 3115</b><span>JEE Advanced 2024</span></li>
+        <li><b>1441</b><span>Codeforces peak</span></li>
+        <li><b>45.5%</b><span>ReAct EM on HotpotQA</span></li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="about">
+        <p>I'm a Computer Science undergraduate at the Indian Institute of Technology, Patna (2024–2028). My current focus is LLM agents: building them, measuring them honestly, and understanding exactly why they fail.</p>
+        <p>I also enjoy shipping full-stack products, from AI-powered CLIs to microservice backends with Redis caching, and I compete in algorithmic contests on the side. Outside code, I coordinate Standup Den, IIT Patna's comedy club.</p>
+        <div class="edu">
+          <h3>Education</h3>
+          <div class="edu-row"><div><b>B.Tech, Computer Science &amp; Engineering</b><br>Indian Institute of Technology, Patna</div><div class="r">2024 – 2028<br><b>CGPA 8.96</b></div></div>
+          <div class="edu-row"><div><b>Central Board of Secondary Education</b><br>Holy Mission Secondary School</div><div class="r">2023 – 2024<br><b>93.4%</b></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="filters" role="tablist">
+        <button class="chip active" data-f="all">All</button>
+        <button class="chip" data-f="ai">AI / LLM</button>
+        <button class="chip" data-f="fullstack">Full-stack</button>
+      </div>
+      <div class="grid">
+
+        <article class="card" data-cat="ai">
+          <div class="card-head"><h3>Agent Failure-Mode Analysis</h3><span class="tag live">Ongoing</span></div>
+          <p class="sub">ReAct on HotpotQA with open LLMs</p>
+          <ul>
+            <li>Built an evaluation harness in Python (ReAct loop with Search/Lookup tools, plus direct and chain-of-thought baselines) running <b>Gemma 3 12B</b> on a remote GPU via an OpenAI-compatible API.</li>
+            <li>Reproduced ReAct on <b>200 multi-hop questions</b>: <b>45.5%</b> exact match vs. 22.5% direct and 21.0% CoT, with non-overlapping 95% bootstrap CIs.</li>
+            <li>Labeled <b>86 failed trajectories</b> into a <b>12-category</b> failure taxonomy; 17.5% of runs exhausted the step budget.</li>
+            <li>Showed retrieval was not the bottleneck (43% vs. 45% failure), pointing to bridge-entity identification.</li>
+            <li>Found 15 of 51 wrong answers were scoring artifacts; a relaxed metric lifted measured accuracy from 57.5% to 61.5%.</li>
+          </ul>
+          <p class="stack"><span>Python</span><span>Ollama</span><span>Hugging Face Datasets</span><span>NumPy</span><span>pandas</span></p>
+          <a class="link" href="https://github.com/PratyushC290" target="_blank" rel="noopener">GitHub →</a>
+        </article>
+
+        <article class="card" data-cat="ai">
+          <div class="card-head"><h3>Multilingual LLM Agents for Patient Intake</h3></div>
+          <p class="sub">Human-in-the-loop, Hindi–English</p>
+          <ul>
+            <li>Multi-agent system with <b>3 specialised agents</b>, an orchestrator and human review, running local inference with Ollama (qwen3, Gemma 3).</li>
+            <li>Benchmarked LLM vs. IndicTrans2 translation: <b>96–100% key-term recall</b> and <b>7× lower latency</b> with IndicTrans2 at equal recall.</li>
+            <li>Raised agent decision accuracy from <b>80% to 100%</b> on targeted probes using JSON-schema and Pydantic structured outputs.</li>
+            <li>Cut inference latency with model warm-up, keep-alive and context trimming.</li>
+            <li>Wrote <b>139 pytest tests</b> with dependency-injected mock models; added a rule-based safety layer for 6 emergency categories across 3 scripts.</li>
+          </ul>
+          <p class="stack"><span>Python</span><span>Pydantic</span><span>PyTorch</span><span>Hugging Face</span><span>Ollama</span></p>
+          <a class="link" href="https://github.com/PratyushC290" target="_blank" rel="noopener">GitHub →</a>
+        </article>
+
+        <article class="card" data-cat="ai fullstack">
+          <div class="card-head"><h3>CLI Based AI Agent</h3></div>
+          <p class="sub">Full-stack AI CLI platform</p>
+          <ul>
+            <li>Architected a platform with <b>3 interaction modes</b> and state across <b>5 database schemas</b> using Next.js and Prisma.</li>
+            <li>Integrated Google Gemini via Vercel AI SDK with <b>3 custom tools</b> for live web retrieval and sandboxed code execution.</li>
+            <li>Built a code-generation engine on Zod schemas, cutting scaffolding time by <b>99%</b> to under 30 seconds.</li>
+            <li>Implemented OAuth 2.0 device-flow GitHub login via Better-Auth with 5-second CLI polling.</li>
+            <li>Terminal UI with Commander.js and Clack, with <b>100% session persistence</b> across concurrent inputs.</li>
+          </ul>
+          <p class="stack"><span>Next.js</span><span>Prisma</span><span>PostgreSQL</span><span>Vercel AI SDK</span><span>Zod</span><span>Node.js</span></p>
+          <a class="link" href="https://github.com/PratyushC290" target="_blank" rel="noopener">GitHub →</a>
+        </article>
+
+        <article class="card" data-cat="fullstack">
+          <div class="card-head"><h3>BlogPost Web App</h3></div>
+          <p class="sub">MERN + AWS S3</p>
+          <ul>
+            <li>AWS S3 media pipeline for decentralized storage, cutting server overhead by <b>40%</b> with 100% asset availability.</li>
+            <li>JWT/bcrypt authentication that cut session-related DB queries by <b>35%</b> and blocked CSRF attacks.</li>
+            <li>React/Shadcn UI with modular components, boosting code reusability by <b>25%</b>.</li>
+            <li>Async-middleware Node.js APIs that reduced MongoDB query latency by <b>50%</b>.</li>
+          </ul>
+          <p class="stack"><span>React</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>AWS S3</span><span>Shadcn UI</span><span>Tailwind CSS</span></p>
+          <a class="link" href="https://github.com/PratyushC290" target="_blank" rel="noopener">GitHub →</a>
+        </article>
+
+        <article class="card" data-cat="fullstack">
+          <div class="card-head"><h3>Microservices Music Streaming</h3></div>
+          <p class="sub">Node.js + Redis</p>
+          <ul>
+            <li>Microservices architecture handling high-concurrency workloads, cutting API response times by <b>85%</b>.</li>
+            <li>Redis caching layer for metadata endpoints: <b>200 ms</b> album and <b>80 ms</b> song lookups.</li>
+            <li>Query restructuring made song fetching <b>6.6× faster</b> and minimised round trips.</li>
+            <li>Independent Admin, User and Songs services for fault tolerance and deployment flexibility.</li>
+          </ul>
+          <p class="stack"><span>Node.js</span><span>Redis</span><span>MongoDB</span><span>PostgreSQL</span><span>React</span><span>Tailwind CSS</span></p>
+          <a class="link" href="https://github.com/PratyushC290" target="_blank" rel="noopener">GitHub →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div><h3>Languages</h3><p class="stack"><span>Python</span><span>C</span><span>C++</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span></p></div>
+        <div><h3>AI / ML</h3><p class="stack"><span>PyTorch</span><span>Hugging Face</span><span>Ollama</span><span>Pydantic</span><span>LangChain</span><span>NumPy</span><span>Pandas</span><span>VectorDB</span></p></div>
+        <div><h3>Web &amp; Frameworks</h3><p class="stack"><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Tailwind CSS</span></p></div>
+        <div><h3>Databases</h3><p class="stack"><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span><span>Firebase</span><span>Supabase</span></p></div>
+        <div><h3>Tools</h3><p class="stack"><span>Git</span><span>GitHub</span><span>Docker</span><span>Postman</span></p></div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <ul class="ach">
+        <li><b>National Semi-Finalist</b> — Flipkart Grid 7.0 (2025)</li>
+        <li><b>Selected</b> for the Google Students Upskilling Program (Summer 2025)</li>
+        <li><b>Specialist</b> on Codeforces — peak 1441 (<a href="https://codeforces.com/profile/Algomancer" target="_blank" rel="noopener">Algomancer</a>)</li>
+        <li><b>3 Star</b> on CodeChef — peak 1617 (<a href="https://www.codechef.com/users/swift_pine_34" target="_blank" rel="noopener">swift_pine_34</a>)</li>
+        <li><b>AIR 3115</b> in JEE Advanced 2024 among 200,000+ candidates</li>
+        <li><b>99.84 percentile (AIR 2668)</b> in JEE Main 2024 among 1.4 million+ candidates</li>
+      </ul>
+    </section>
+
+    <section id="leadership">
+      <h2>Leadership</h2>
+      <div class="card wide">
+        <div class="card-head"><h3>Standup Den, IIT Patna</h3></div>
+        <p class="sub">Coordinator (2026–2027) · Sub-Coordinator (2025–2026)</p>
+        <ul>
+          <li>Directed club operations after organising <b>10+ workshops</b> for 100+ participants.</li>
+          <li>Competed at the Inter-IIT Cultural Meet 8.0 Comedy Cup, representing the institute.</li>
+          <li>Led event execution and cross-campus outreach, driving an <b>80% increase</b> in student participation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get in touch</h2>
+      <p class="lead">Open to internships, research collaborations and interesting problems.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:pratyushchandra2904@gmail.com">pratyushchandra2904@gmail.com</a>
+        <a class="btn" href="tel:+916203909114">+91 62039 09114</a>
+        <a class="btn" href="https://github.com/PratyushC290" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/pratyush-chandra-" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="yr"></span> Pratyush Chandra · Patna, India</footer>
+  <script src="script.js"></script>
+</body>
+</html>
