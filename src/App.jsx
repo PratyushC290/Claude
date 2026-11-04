@@ -204,7 +204,6 @@ export default function App() {
           <p className="dim">Open to internships, research collaborations and interesting problems.</p>
           <ul className="log contact">
             <li><span className="k">email</span> <a href={`mailto:${profile.email}`}>{profile.email}</a></li>
-            <li><span className="k">phone</span> <a href="tel:+916203909114">{profile.phone}</a></li>
             <li><span className="k">github</span> <a href={profile.github} target="_blank" rel="noopener noreferrer">github.com/PratyushC290</a></li>
             <li><span className="k">linkedin</span> <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/pratyush-chandra-</a></li>
             <li><span className="k">location</span> {profile.location}</li>

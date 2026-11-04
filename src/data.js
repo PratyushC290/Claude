@@ -2,7 +2,6 @@ export const profile = {
   name: 'Pratyush Chandra',
   handle: 'pratyush',
   email: 'pratyushchandra2904@gmail.com',
-  phone: '+91 62039 09114',
   location: 'Patna, India',
   github: 'https://github.com/PratyushC290',
   linkedin: 'https://www.linkedin.com/in/pratyush-chandra-',
